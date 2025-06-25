@@ -134,7 +134,7 @@ class {{cookiecutter.lab_name}}_ExperimentalPlan(ExperimentalPlan, EntryData):
                 ]
             ),
         ),
-        a_template=dict(institute='{{cookiecutter.lab_name}}_Hysprint'),
+        a_template=dict(institute='{{cookiecutter.lab_name}}_{{cookiecutter.lab_name}}'),
     )
 
     solar_cell_properties = SubSection(section_def=SolarCellProperties)
@@ -173,7 +173,7 @@ class {{cookiecutter.lab_name}}_Chemical(Chemical, EntryData):
     m_def = Section(a_eln=dict(hide=['lab_id', 'users']))
 
 
-class Hysprint_Electrode(Electrode, EntryData):
+class {{cookiecutter.lab_name}}_Electrode(Electrode, EntryData):
     m_def = Section(
         a_eln=dict(
             hide=['users', 'components', 'elemental_composition', 'origin'],
@@ -304,7 +304,7 @@ class {{cookiecutter.lab_name}}_Sample(SolcarCellSample, EntryData):
             hide=['users', 'components', 'elemental_composition'],
             properties=dict(order=['name', 'substrate', 'architecture']),
         ),
-        a_template=dict(institute='{{cookiecutter.lab_name}}_Hysprint'),
+        a_template=dict(institute='{{cookiecutter.lab_name}}_{{cookiecutter.lab_name}}'),
         label_quantity='sample_id',
     )
 
@@ -312,7 +312,7 @@ class {{cookiecutter.lab_name}}_Sample(SolcarCellSample, EntryData):
 class {{cookiecutter.lab_name}}_BasicSample(BasicSampleWithID, EntryData):
     m_def = Section(
         a_eln=dict(hide=['users', 'components', 'elemental_composition']),
-        a_template=dict(institute='{{cookiecutter.lab_name}}_Hysprint'),
+        a_template=dict(institute='{{cookiecutter.lab_name}}_{{cookiecutter.lab_name}}'),
         label_quantity='sample_id',
     )
 
