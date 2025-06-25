@@ -53,8 +53,8 @@ from {{cookiecutter.module_name}}.schema_packages.{{cookiecutter.lab_name}}_pack
     {{cookiecutter.lab_name}}_UVvismeasurement,
     {{cookiecutter.lab_name}}_XPS,
     {{cookiecutter.lab_name}}_XRD_XY,
-    HZB_EnvironmentMeasurement,
-    HZB_NKData,
+    {{cookiecutter.lab_name}}_EnvironmentMeasurement,
+    {{cookiecutter.lab_name}}_NKData,
 )
 
 """
@@ -62,7 +62,7 @@ This is a hello world style example for an example parser/converter.
 """
 
 
-class RawFileHZB(EntryData):
+class RawFile{{cookiecutter.lab_name}}(EntryData):
     processed_archive = Quantity(
         type=Activity,
     )
@@ -155,9 +155,9 @@ class {{cookiecutter.lab_name}}Parser(MatchingParser):
             entry = {{cookiecutter.lab_name}}_UVvismeasurement()
             entry.data_file = [os.path.basename(mainfile)]
         if mainfile_split[-1] in ['txt'] and measurment_type == 'env':
-            entry = HZB_EnvironmentMeasurement()
+            entry = {{cookiecutter.lab_name}}_EnvironmentMeasurement()
         if mainfile_split[-1] in ['nk']:
-            entry = HZB_NKData()
+            entry = {{cookiecutter.lab_name}}_NKData()
         if mainfile_split[-1] in ['txt', 'csv'] and measurment_type == 'mppt':
             entry = {{cookiecutter.lab_name}}_SimpleMPPTracking()
         archive.metadata.entry_name = os.path.basename(mainfile)
@@ -175,7 +175,7 @@ class {{cookiecutter.lab_name}}Parser(MatchingParser):
 
         file_name = f'{os.path.basename(mainfile)}.archive.json'
         eid = get_entry_id_from_file_name(file_name, archive)
-        archive.data = RawFileHZB(processed_archive=get_reference(archive.metadata.upload_id, eid))
+        archive.data = RawFile{{cookiecutter.lab_name}}(processed_archive=get_reference(archive.metadata.upload_id, eid))
         new_entry_created = create_archive(entry, archive, file_name)
         if not new_entry_created:
             new_entry = update_general_process_entries(entry, eid, archive, logger)

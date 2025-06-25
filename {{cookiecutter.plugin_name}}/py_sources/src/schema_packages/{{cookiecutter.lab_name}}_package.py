@@ -134,7 +134,7 @@ class {{cookiecutter.lab_name}}_ExperimentalPlan(ExperimentalPlan, EntryData):
                 ]
             ),
         ),
-        a_template=dict(institute='HZB_Hysprint'),
+        a_template=dict(institute='{{cookiecutter.lab_name}}_Hysprint'),
     )
 
     solar_cell_properties = SubSection(section_def=SolarCellProperties)
@@ -304,7 +304,7 @@ class {{cookiecutter.lab_name}}_Sample(SolcarCellSample, EntryData):
             hide=['users', 'components', 'elemental_composition'],
             properties=dict(order=['name', 'substrate', 'architecture']),
         ),
-        a_template=dict(institute='HZB_Hysprint'),
+        a_template=dict(institute='{{cookiecutter.lab_name}}_Hysprint'),
         label_quantity='sample_id',
     )
 
@@ -312,7 +312,7 @@ class {{cookiecutter.lab_name}}_Sample(SolcarCellSample, EntryData):
 class {{cookiecutter.lab_name}}_BasicSample(BasicSampleWithID, EntryData):
     m_def = Section(
         a_eln=dict(hide=['users', 'components', 'elemental_composition']),
-        a_template=dict(institute='HZB_Hysprint'),
+        a_template=dict(institute='{{cookiecutter.lab_name}}_Hysprint'),
         label_quantity='sample_id',
     )
 
@@ -490,7 +490,7 @@ class {{cookiecutter.lab_name}}_Inkjet_Printing(LP50InkjetPrinting, EntryData):
         type=str,
         a_eln=dict(
             component='EnumEditQuantity',
-            props=dict(suggestions=['IRIS HZBGloveBoxes Pero3Inkjet']),
+            props=dict(suggestions=['IRIS {{cookiecutter.lab_name}}GloveBoxes Pero3Inkjet']),
         ),
     )
 
@@ -540,7 +540,7 @@ class {{cookiecutter.lab_name}}_SpinCoating(SpinCoating, EntryData):
                     '{{cookiecutter.lab_name}} HyPeroSpin',
                     '{{cookiecutter.lab_name}} HySpin',
                     '{{cookiecutter.lab_name}} ProtoVap',
-                    'IRIS HZBGloveBoxes Pero2Spincoater',
+                    'IRIS {{cookiecutter.lab_name}}GloveBoxes Pero2Spincoater',
                 ]
             ),
         ),
@@ -744,7 +744,7 @@ class {{cookiecutter.lab_name}}_Evaporation(Evaporations, EntryData):
             component='EnumEditQuantity',
             props=dict(
                 suggestions=[
-                    'IRIS HZBGloveBoxes Pero5Evaporation',
+                    'IRIS {{cookiecutter.lab_name}}GloveBoxes Pero5Evaporation',
                     '{{cookiecutter.lab_name}} HyVap',
                     '{{cookiecutter.lab_name}} HyPeroVap',
                     '{{cookiecutter.lab_name}} ProtoVap',
@@ -795,7 +795,7 @@ class {{cookiecutter.lab_name}}_Storage(Storage, EntryData):
 
 
 # %%####################################### Measurements
-class HZB_EnvironmentMeasurement(EnvironmentMeasurement, EntryData):
+class {{cookiecutter.lab_name}}_EnvironmentMeasurement(EnvironmentMeasurement, EntryData):
     m_def = Section(
         a_eln=dict(
             hide=[
@@ -1734,7 +1734,7 @@ class {{cookiecutter.lab_name}}_OpenCircuitVoltage(OpenCircuitVoltage, EntryData
 
 
 # %%####################################### Data Transformations
-class HZB_NKData(NKData, EntryData):
+class {{cookiecutter.lab_name}}_NKData(NKData, EntryData):
     m_def = Section(
         a_eln=dict(
             hide=[
