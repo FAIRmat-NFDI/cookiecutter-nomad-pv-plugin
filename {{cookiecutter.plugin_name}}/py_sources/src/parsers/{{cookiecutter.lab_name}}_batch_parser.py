@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""
-Created on Fri Sep 27 09:08:03 2024
-
-@author: a2853
-"""
-
 #
 # Copyright The NOMAD Authors.
 #
