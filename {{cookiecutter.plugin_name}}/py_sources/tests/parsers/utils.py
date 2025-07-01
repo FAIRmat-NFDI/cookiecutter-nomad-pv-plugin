@@ -8,26 +8,21 @@ def set_monkey_patch(monkeypatch):
         return None
 
     monkeypatch.setattr(
-        'nomad_hysprint.parsers.hysprint_measurement_parser.set_sample_reference',
+        '{{cookiecutter.module_name}}.parsers.{{cookiecutter.lab_name}}_measurement_parser.set_sample_reference',
         mockreturn_search,
     )
 
     monkeypatch.setattr(
-        'nomad_hysprint.schema_packages.hysprint_package.set_sample_reference',
-        mockreturn_search,
-    )
-
-    monkeypatch.setattr(
-        'nomad_hysprint.parsers.hysprint_measurement_parser.update_general_process_entries',
+        '{{cookiecutter.module_name}}.schema_packages.{{cookiecutter.lab_name}}_package.set_sample_reference',
         mockreturn_search,
     )
 
 
 def delete_json():
-    for file in os.listdir(os.path.join('tests/data')):
+    for file in os.listdir(os.path.join('tests','parser','data')):
         if not file.endswith('archive.json'):
             continue
-        os.remove(os.path.join('tests', 'data', file))
+        os.remove(os.path.join('tests','parser','data', file))
 
 
 def get_archive(file_base, monkeypatch):
@@ -37,10 +32,10 @@ def get_archive(file_base, monkeypatch):
     assert file_archive.data
     assert file_archive.metadata
 
-    for file in os.listdir(os.path.join('tests/data')):
+    for file in os.listdir(os.path.join('tests','parser','data')):
         if 'archive.json' not in file:
             continue
-        measurement_path = os.path.join('tests', 'data', file)
+        measurement_path = os.path.join('tests','parser','data', file)
         measurement_archive = parse(measurement_path)[0]
 
     return measurement_archive

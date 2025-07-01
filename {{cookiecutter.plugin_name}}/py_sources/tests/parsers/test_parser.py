@@ -9,15 +9,15 @@ from utils import delete_json, get_archive
 
 def test_batch_parser(monkeypatch):  # noqa: PLR0915
     file = '20250114_experiment_file.xlsx'
-    file_name = os.path.join('tests', 'data', file)
+    file_name = os.path.join('tests','parsers', 'data', file)
     file_archive = parse(file_name)[0]
     assert len(file_archive.data.processed_archive) == 27
 
     measurement_archives = []
-    for file in os.listdir(os.path.join('tests/data')):
+    for file in os.listdir(os.path.join('tests','parser','data')):
         if 'archive.json' not in file:
             continue
-        measurement = os.path.join('tests', 'data', file)
+        measurement = os.path.join('tests','parser','data', file)
         measurement_archives.append(parse(measurement)[0])
     measurement_archives.sort(key=lambda x: x.metadata.mainfile)
 
