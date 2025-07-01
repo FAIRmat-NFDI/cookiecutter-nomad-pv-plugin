@@ -43,7 +43,7 @@ def get_token(url, name=None):
     response.raise_for_status()  
     return response.json()['access_token']
 
-def get_batch_ids(url, token, batch_type="HySprint_Batch"):
+def get_batch_ids(url, token, batch_type="{{cookiecutter.lab_name}}_Batch"):
     query = {
         'required': {
             'data': '*'
@@ -60,7 +60,7 @@ def get_batch_ids(url, token, batch_type="HySprint_Batch"):
     data = response.json()["data"]
     return [d["archive"]["data"]["lab_id"] for d in data if "lab_id" in d["archive"]["data"]]
 
-def get_ids_in_batch(url, token,batch_ids, batch_type="HySprint_Batch"):
+def get_ids_in_batch(url, token,batch_ids, batch_type="{{cookiecutter.lab_name}}_Batch"):
     query = {
         'required': {
             'data': '*'
@@ -242,7 +242,7 @@ def get_specific_data_of_sample(url, token, sample_id, entry_type, with_meta=Fal
             res.append(ldata["archive"]["data"])
     return res
 
-def get_all_JV(url, token, sample_ids, jv_type="HySprint_JVmeasurement"):
+def get_all_JV(url, token, sample_ids, jv_type="{{cookiecutter.lab_name}}_JVmeasurement"):
     # collect the results of the sample, in this case it are all the annealing temperatures
     def process_jv_with_metadata(jv_data_with_metadata):
         """
@@ -347,7 +347,7 @@ def get_all_measurements_except_JV(url, token, sample_ids):
         res[lab_id].append((ldata["archive"]["data"],ldata["archive"]["metadata"]))
     return res
 
-def get_all_eqe(url, token, sample_ids, eqe_type="HySprint_EQEmeasurement"):
+def get_all_eqe(url, token, sample_ids, eqe_type="{{cookiecutter.lab_name}}_EQEmeasurement"):
     #
     query = {
         'required': {
@@ -389,7 +389,7 @@ def get_all_eqe(url, token, sample_ids, eqe_type="HySprint_EQEmeasurement"):
         res[lab_id].append((ldata["archive"]["data"],ldata["archive"]["metadata"]))
     return res
 
-def get_all_mppt(url, token, sample_ids, mppt_type="HySprint_SimpleMPPTracking"):
+def get_all_mppt(url, token, sample_ids, mppt_type="{{cookiecutter.lab_name}}_SimpleMPPTracking"):
     #
     query = {
         'required': {

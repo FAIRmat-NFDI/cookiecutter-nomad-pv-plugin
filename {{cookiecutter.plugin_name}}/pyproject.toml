@@ -37,9 +37,6 @@ license = { file = "LICENSE" }
 dependencies = [
     "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git",
     "nomad-lab>=1.3.16",
-    "numpy",
-    "pandas",
-    "pynxtools",
     "python-magic-bin; sys_platform == 'win32'",
 ]
 
