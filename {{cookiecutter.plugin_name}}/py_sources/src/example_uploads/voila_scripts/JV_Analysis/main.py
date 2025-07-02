@@ -1367,7 +1367,7 @@ def histogram(path, df, var_y):
             color='rgba(0, 0, 255, 0.6)',
             line=dict(color='rgba(0, 0, 255, 1)', width=1)
         ),
-        hovertemplate=f'{pl_y}: %{{x:.3f}}<br>Count: %{{y}}<extra></extra>'
+        hovertemplate=f'{pl_y}: %{% raw -%}{{x:.3f}}<br>Count: %{{y}}{% endraw %}<extra></extra>'
     ))
     
     # Add a line trace for the kernel density estimate if enough data points
