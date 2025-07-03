@@ -38,7 +38,7 @@ app_entry_point = AppEntryPoint(
 )
 
 
-schema_name = '{{cookiecutter.module_name}}.schema_packages.schema_packages.{{cookiecutter.lab_name}}_package.{{cookiecutter.lab_name}}_VoilaNotebook'
+schema_name = '{{cookiecutter.module_name}}.schema_packages.{{cookiecutter.lab_name}}_package.{{cookiecutter.lab_name}}_VoilaNotebook'
 {{cookiecutter.lab_name}}_voila_app = AppEntryPoint(
     name='voila',
     description='Find and launch your Voila Tools.',
