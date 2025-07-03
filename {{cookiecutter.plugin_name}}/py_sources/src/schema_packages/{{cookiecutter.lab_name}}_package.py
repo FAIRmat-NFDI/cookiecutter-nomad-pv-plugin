@@ -16,7 +16,6 @@
 # limitations under the License.
 #
 
-import os
 import random
 import string
 
@@ -26,26 +25,9 @@ from baseclasses import (
     BaseProcess,
     Batch,
     LayerDeposition,
-    ReadableIdentifiersCustom,
 )
-from baseclasses.assays import (
-    EnvironmentMeasurement,
-)
-from baseclasses.characterizations import XPS, XRD, XPSSpecsLabProdigySettings, XRDData
-from baseclasses.characterizations.electron_microscopy import SEM_Microscope_Merlin
-from baseclasses.chemical import Chemical
-from baseclasses.chemical_energy import (
-    CyclicVoltammetry,
-    ElectrochemicalImpedanceSpectroscopy,
-    ElectroChemicalSetup,
-    Electrode,
-    Environment,
-    OpenCircuitVoltage,
-)
-from baseclasses.data_transformations import NKData
-from baseclasses.experimental_plan import ExperimentalPlan
 from baseclasses.helper.add_solar_cell import add_band_gap
-from baseclasses.helper.utilities import convert_datetime, get_encoding, set_sample_reference
+from baseclasses.helper.utilities import get_encoding, set_sample_reference
 from baseclasses.material_processes_misc import (
     Cleaning,
     LaserScribing,
@@ -55,25 +37,13 @@ from baseclasses.material_processes_misc import (
     UVCleaning,
 )
 from baseclasses.solar_energy import (
-    BasicSampleWithID,
     EQEMeasurement,
     JVMeasurement,
     MPPTracking,
-    MPPTrackingHsprintCustom,
-    MPPTrackingProperties,
-    OpticalMicroscope,
-    PLImaging,
-    PLMeasurement,
-    SolarCellEQECustom,
-    SolarCellProperties,
     SolcarCellSample,
-    StandardSampleSolarCell,
     Substrate,
-    TimeResolvedPhotoluminescence,
-    UVvisMeasurement,
-    trSPVMeasurement,
 )
-from baseclasses.solution import Ink, Solution, SolutionPreparationStandard
+from baseclasses.solution import Solution, SolutionPreparationStandard
 from baseclasses.vapour_based_deposition import (
     ALDPropertiesIris,
     AtomicLayerDeposition,
@@ -83,23 +53,15 @@ from baseclasses.vapour_based_deposition import (
 from baseclasses.voila import VoilaNotebook
 from baseclasses.wet_chemical_deposition import (
     BladeCoating,
-    Crystallization,
     DipCoating,
     LP50InkjetPrinting,
     SlotDieCoating,
     SpinCoating,
-    SpinCoatingRecipe,
     SprayPyrolysis,
-    VaporizationAndDropCasting,
     WetChemicalDeposition,
 )
 from nomad.datamodel.data import ArchiveSection, EntryData
-from nomad.datamodel.hdf5 import HDF5Reference
-from nomad.datamodel.metainfo.plot import PlotlyFigure, PlotSection
-from nomad.datamodel.results import ELN, Material, Properties, Results
 from nomad.metainfo import Quantity, SchemaPackage, Section, SubSection
-from nomad.units import ureg
-from pynxtools.dataconverter.convert import convert
 
 m_package = SchemaPackage()
 
