@@ -1,1 +1,1 @@
-{"data":{"m_def":"{{cookiecutter.module_name}}.schema_packages.{{cookiecutter.lab_name}}_package.{{cookiecutter.lab_name}}_VoilaNotebook","name":"File Uploader","notebook_file":"upload_data_for_sample.ipynb"}}
+{"data":{"m_def":"{{cookiecutter.module_name}}.schema_packages.{{cookiecutter.lab_name}}_package.{{cookiecutter.lab_name}}_VoilaNotebook","name":"File Uploader","notebook_file":"Data_uploader/upload_data_for_sample.ipynb"}}
