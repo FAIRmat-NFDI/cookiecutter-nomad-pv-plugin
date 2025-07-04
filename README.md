@@ -13,7 +13,7 @@ pipx install cruft
 # If pipx is not an option,
 # you can install cruft in your Python user directory.
 python -m pip install --user cruft
-$ cruft create https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin
+$ cruft create https://github.com/FAIRmat-NFDI/cookiecutter-nomad-pv-plugin
 ```
 
 Cookiecutter prompts you for information regarding your plugin:
@@ -24,6 +24,7 @@ email [john.doe@physik.hu-berlin.de]: citizen@kane.de
 github_username [Github organization or profile name, default: foo]: kane
 plugin_name [foobar]: nomad-awesome-tools
 module_name [nomad_awesome_tools]: nomad_awesome_tools
+lab_name [lab_name]: pv_lab
 short_description [NOMAD example template]: An awesome plugin for NOMAD
 version [0.1.0]:
 Select license:
