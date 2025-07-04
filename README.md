@@ -7,7 +7,10 @@ Minimal [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template fo
 Install [Cruft](https://github.com/cruft/cruft) and generate a new nomad plugin project:
 
 ```no-highlight
-# pipx is strongly recommended.
+# uv is strongly recommended.
+uv tool install cruft
+
+# if you have pipx installed.
 pipx install cruft
 
 # If pipx is not an option,
