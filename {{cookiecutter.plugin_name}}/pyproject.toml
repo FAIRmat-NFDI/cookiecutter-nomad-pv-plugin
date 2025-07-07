@@ -93,6 +93,10 @@ select = [
 
 ignore = [
     "F403", # 'from module import *' used; unable to detect undefined names
+    "PLR2004", # magic value used in comparison
+    "E501", # line too long
+    "PLR0915", # too-many-statements
+    "PLR0912", # too-many-branches
 ]
 
 fixable = ["ALL"]
